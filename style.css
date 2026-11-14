@@ -42,7 +42,7 @@ button { cursor: pointer; }
 }
 .hero h1 span, .page-intro h1 span { color: var(--red); }
 .hero-copy-block > p, .page-intro > p {
-  color: var(--muted); font-size: 14px; line-height: 1.5; margin: 0 0 22px;
+  color: 160  color: var(--muted); font-size: 15px; line-height: 1.6; margin-bottom: 20px;; font-size: 14px; line-height: 1.5; margin: 0 0 22px;
 }
 .btn {
   border: 1px solid var(--line); border-radius: 5px; padding: 11px 15px;
