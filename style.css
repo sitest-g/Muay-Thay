@@ -5,8 +5,9 @@
   --line: #333;
   --text: #f2f2f2;
   --muted: #e4a277;
-  --red: #d71920;
+  --red: #ff0000;
 }
+
 * { box-sizing: border-box; }
 body {
   margin: 0;
