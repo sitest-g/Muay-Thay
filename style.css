@@ -1,18 +1,17 @@
-
 :root {
   --bg: #111;
   --panel: #1b1b1b;
   --panel2: #222;
   --line: #333;
   --text: #f2f2f2;
-  --muted: #ff1b54;
+  --muted: #e4a277;
   --red: #d71920;
 }
 * { box-sizing: border-box; }
 body {
   margin: 0;
   background:
-    linear-gradient(rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.35)),
+    linear-gradient(rgba(0, 0, 0, 0.404), rgba(20, 0, 0, 0.527)),
     url("IMGBCK.jpg") center center / cover fixed no-repeat;
   color: var(--text);
 }
@@ -40,12 +39,14 @@ button { cursor: pointer; }
   font: 800 clamp(34px, 6vw, 54px)/1.05 Arial, sans-serif;
   letter-spacing: -1.5px; margin: 12px 0;
 }
-
 .hero h1 span, .page-intro h1 span { color: var(--red); }
 .hero-copy-block > p, .page-intro > p {
   color: var(--muted); font-size: 14px; line-height: 1.5; margin: 0 0 22px;
 }
-
+.btn {
+  border: 1px solid var(--line); border-radius: 5px; padding: 11px 15px;
+  font-size: 12px; font-weight: 700; background: var(--panel2); color: var(--text);
+}
 .btn-primary { background: var(--red); border-color: var(--red); color: white; }
 .btn-primary:hover { background: #b9141a; }
 .btn-secondary, .btn-outline { background: var(--panel2); color: var(--text); }
