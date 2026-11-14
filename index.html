@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090909">
+  <title>ROUND — Sparring Control</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+ 
+
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" id="homeBrand" aria-label="ROUND — início">
+        <span class="brand-symbol"><span></span><span></span><span></span></span>
+        <span class="brand-word">ROUND<span>.</span></span>
+      </a>
+      <div class="topbar-right">
+        <span class="live-indicator"></span>
+        <span class="topbar-label">SPARRING CONTROL</span>
+        <span class="topbar-divider"></span>
+        <span class="topbar-version">01 / 26</span>
+      </div>
+    </header>
+
+    <main>
+      <section id="homeView" class="view">
+        <div class="hero">
+          <div class="hero-copy-block">
+            <div class="eyebrow"><span class="eyebrow-line"></span> PAINEL DE CONTROLE <span class="eyebrow-index">01 — SESSÕES</span></div>
+            <h1>PREPARE-SE.<br><span>ENTRE NO ROUND.</span></h1>
+            <p>Organize seus sparrings com precisão. Monte os confrontos, acompanhe cada rodada e mantenha o foco no treino.</p>
+            <button class="btn btn-primary btn-large" id="newRoundBtn"><span class="btn-plus">+</span> CRIAR NOVO ROUND <span class="btn-arrow">↗</span></button>
+          </div>
+          <div class="hero-visual" aria-hidden="true">
+            <div class="hero-ring ring-outer"></div>
+            <div class="hero-ring ring-inner"></div>
+            <div class="hero-cross cross-one"></div>
+            <div class="hero-cross cross-two"></div>
+            <div class="hero-visual-text">R<span>.</span></div>
+            <div class="hero-stamp">DISCIPLINA<br>RESPEITO<br>EVOLUÇÃO</div>
+            <div class="hero-side-label">MUAY THAI / TRAINING SYSTEM</div>
+          </div>
+          <div class="hero-bottomline"><span>ORGANIZAÇÃO DE TREINO</span><span>FOCO EM CADA CONFRONTO <b>↘</b></span></div>
+        </div>
+
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow"><span class="eyebrow-line"></span> SEU ESPAÇO DE TREINO</div>
+            <h2>ROUNDS <span>CRIADOS</span></h2>
+          </div>
+          <span class="count-pill" id="roundCount">0 ROUNDS</span>
+        </div>
+        <div id="roundList" class="round-grid"></div>
+        <div id="emptyState" class="empty-state">
+          <div class="empty-emblem"><span>R</span></div>
+          <div class="empty-kicker">AINDA NÃO HÁ SESSÕES</div>
+          <h3>O PRIMEIRO ROUND<br>COMEÇA COM VOCÊ.</h3>
+          <p>Crie uma sessão e adicione os participantes para gerar os confrontos automaticamente.</p>
+          <button class="btn btn-outline" id="emptyCreateBtn" type="button">CRIAR PRIMEIRO ROUND <span>↗</span></button>
+        </div>
+      </section>
+
+      <section id="setupView" class="view hidden">
+        <button class="back-link" id="setupBack"><span>←</span> VOLTAR AO PAINEL</button>
+        <div class="page-intro">
+          <div class="eyebrow"><span class="eyebrow-line"></span> CONFIGURAÇÃO DA SESSÃO <span class="eyebrow-index">02 — NOVO ROUND</span></div>
+          <h1>MONTE SUA<br><span>EQUIPE.</span></h1>
+          <p>Um bom treino começa com uma boa organização.</p>
+        </div>
+        <div class="setup-layout">
+          <div class="setup-main panel">
+            <div class="panel-heading"><span class="step-number">01</span><div><h2>IDENTIFICAÇÃO</h2><p>Dê um nome para esta sessão de sparring.</p></div></div>
+            <label for="roundName">NOME DO ROUND</label>
+            <input id="roundName" maxlength="48" placeholder="Ex.: Treino de sexta — equipe A" autocomplete="off">
+            <div class="panel-separator"></div>
+            <div class="panel-heading participant-panel-heading"><span class="step-number">02</span><div><h2>PARTICIPANTES</h2><p>Adicione os atletas que entrarão nas chaves.</p></div><span class="count-pill" id="participantCount">0 ADICIONADOS</span></div>
+            <div class="add-row">
+              <input id="participantName" maxlength="32" placeholder="Nome do participante" autocomplete="off">
+              <button class="btn btn-secondary" id="addParticipantBtn">ADICIONAR <span>+</span></button>
+            </div>
+            <ul id="participantList" class="participant-list"></ul>
+            <div class="setup-footer">
+              <span class="hint" id="setupHint">Mínimo de 2 participantes.</span>
+              <button class="btn btn-primary" id="createRoundBtn" disabled>GERAR CHAVEAMENTO <span>↗</span></button>
+            </div>
+          </div>
+          <aside class="setup-aside">
+            <div class="aside-mark">R<span>.</span></div>
+            <div class="aside-label">ROUND RULES</div>
+            <h3>JUSTO.<br>ORGANIZADO.<br><span>SEM REPETIÇÃO.</span></h3>
+            <ul><li><b>01</b> Todos contra todos</li><li><b>02</b> Sem duplas repetidas</li><li><b>03</b> Distribuição automática</li><li><b>04</b> Histórico por sessão</li></ul>
+          </aside>
+        </div>
+      </section>
+
+      <section id="roundView" class="view hidden">
+        <button class="back-link" id="roundBack"><span>←</span> TODOS OS ROUNDS</button>
+        <div class="round-title-row">
+          <div>
+            <div class="eyebrow"><span class="eyebrow-line"></span> SESSÃO DE SPARRING <span class="eyebrow-index">ROUND / ACTIVE</span></div>
+            <h1 id="activeRoundName">ROUND</h1>
+            <p class="muted" id="roundMeta"></p>
+          </div>
+          <button class="btn btn-ghost btn-small" id="deleteRoundBtn">EXCLUIR SESSÃO <span>×</span></button>
+        </div>
+
+        <div class="progress-panel panel">
+          <div class="progress-heading"><div><span class="eyebrow">DESEMPENHO DA SESSÃO</span><strong>PROGRESSO</strong></div><strong class="progress-numbers" id="progressText">0 / 0</strong></div>
+          <div class="progress-track"><div id="progressBar" class="progress-fill"></div></div>
+          <div class="progress-bottom"><span id="progressPercent">0% concluído</span><span id="remainingText">—</span></div>
+        </div>
+
+        <div id="roundComplete" class="complete-panel hidden">
+          <div class="complete-mark">✓</div>
+          <div><div class="eyebrow">SESSÃO FINALIZADA</div><h2>ROUND CONCLUÍDO.</h2><p>Todos os confrontos previstos foram organizados e registrados.</p></div>
+        </div>
+
+        <div id="currentRoundArea">
+          <div class="round-number-row">
+            <div><div class="eyebrow"><span class="eyebrow-line"></span> AGORA NO TATAME</div><h2>ROUND <span id="currentRoundNumber">1</span><small id="totalRounds">/ 1</small></h2></div>
+            <span class="round-tag" id="roundTag">PRÓXIMA</span>
+          </div>
+          <div id="matchGrid" class="match-grid"></div>
+          <div id="bagArea" class="bag-card hidden">
+            <div class="bag-symbol"><span></span><span></span></div><div><span class="eyebrow">ATIVIDADE ALTERNATIVA</span><h3 id="bagName">—</h3><p>Responsável pelo trabalho no saco nesta rodada</p></div><span class="bag-tag">SACO</span>
+          </div>
+          <button class="btn btn-primary btn-large next-btn" id="nextRoundBtn">INICIAR RODADA <span>↗</span></button>
+        </div>
+
+        <section class="history-section">
+          <div class="section-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> RASTREABILIDADE</div><h2>HISTÓRICO <span>DA SESSÃO</span></h2></div><span class="count-pill" id="historyCount">0 CONCLUÍDAS</span></div>
+          <div id="historyList" class="history-list"></div>
+          <div id="historyEmpty" class="history-empty"><span>↳</span> As rodadas concluídas aparecerão aqui.</div>
+        </section>
+      </section>
+    </main>
+
+    <footer><a class="footer-brand" href="#" id="footerBrand">ROUND<span>.</span></a><span>DISCIPLINA EM CADA ROUND.</span><span class="footer-code">RT / SPARRING SYSTEM</span></footer>
+  </div>
+
+  <dialog id="confirmDialog" class="dialog">
+    <form method="dialog">
+      <div class="eyebrow"><span class="eyebrow-line"></span> CONFIRMAR AÇÃO</div>
+      <h2 id="dialogTitle">Tem certeza?</h2>
+      <p id="dialogText"></p>
+      <div class="dialog-actions"><button class="btn btn-secondary" value="cancel">CANCELAR</button><button class="btn btn-danger" id="dialogConfirm" value="confirm">CONFIRMAR</button></div>
+    </form>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
