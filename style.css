@@ -11,9 +11,9 @@
 * { box-sizing: border-box; }
 body {
   margin: 0;
+  margin: 0;
   background:
-  rgba(0, 0, 0, 0.35),
-  rgba(0, 0, 0, 0.50)
+    linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.85))
     url("IMGBCK.jpg") center center / cover fixed no-repeat;
   color: var(--text);
 }
